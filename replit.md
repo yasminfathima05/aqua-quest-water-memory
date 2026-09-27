@@ -1,10 +1,11 @@
-# [Project name]
+# Aqua Quest: Water Memory
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A short playable water-conservation game that turns everyday choices into remembered habits and a real-world action.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/aqua-quest run dev` — run the Aqua Quest web app
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -14,6 +15,7 @@ _Replace the heading above with the project's name, and this line with one sente
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
+- Frontend: React + Vite + TypeScript + Tailwind CSS
 - API: Express 5
 - DB: PostgreSQL + Drizzle ORM
 - Validation: Zod (`zod/v4`), `drizzle-zod`
@@ -22,23 +24,30 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/aqua-quest/src/App.tsx` — game flow, quest rules, local persistence, and screen rendering
+- `artifacts/aqua-quest/src/index.css` — Aqua Quest visual system, responsive layout, and motion
+- `artifacts/aqua-quest` — deployable web artifact
+- `artifacts/api-server` — shared API scaffold; not required by the current game MVP
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The MVP is frontend-only and deterministic so the 3–5 minute judging demo works without accounts, paid services, or network dependencies.
+- Progress is stored in `localStorage` so an in-progress run and the selected real-world quest survive refreshes.
+- The six-quest flow uses repeated behaviour and a memory echo instead of an AI system; the learning mechanic is explicit and reliable.
+- The design uses illustrated CSS/SVG-style visuals and motion rather than stock imagery.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Players protect a shared water supply across six everyday decisions, see immediate consequences, revisit an earlier habit through Water Memory, receive a final result, and choose a practical real-world quest. Completing the follow-through unlocks the Real Water Guardian badge.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep the prototype focused on a polished playable game rather than a generic educational website or dashboard.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The app is a root-routed artifact; use the managed `artifacts/aqua-quest: web` workflow rather than starting Vite manually.
+- The game intentionally has no backend or external integrations in the MVP.
 
 ## Pointers
 

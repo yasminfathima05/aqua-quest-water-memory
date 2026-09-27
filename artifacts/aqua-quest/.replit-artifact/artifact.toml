@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Aqua Quest: Water Memory"
+description = "A polished playable water-conservation game where players make everyday choices, experience consequences, build Water Memory, and choose a real-world action to continue the habit."
+version = "1.0.0"
+id = "artifacts/aqua-quest"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19886
+
+[services.development]
+run = "pnpm --filter @workspace/aqua-quest run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/aqua-quest", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/aqua-quest/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19886"
+BASE_PATH = "/"

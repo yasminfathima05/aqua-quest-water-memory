@@ -1,0 +1,649 @@
+I am building a prototype for the **OneAquaHealth IEEE Global Hackathon 2026**.
+
+## PROJECT NAME
+
+**Aqua Quest: Water Memory**
+
+## CORE IDEA
+
+I do NOT want to build a generic water-awareness website, dashboard, infographic, quiz app, or water-management system.
+
+I want to build an **actual small playable game**.
+
+The player learns responsible water use by making decisions inside the game, experiencing consequences, remembering those consequences, and finally applying one learned behaviour in the real world.
+
+The central gameplay loop is:
+
+**Play → Make choices → Experience consequences → Remember → Face similar choices → Improve → Take a real-world action**
+
+The two main concepts are:
+
+### 1. Aqua Quest
+
+The actual playable game.
+
+### 2. Water Memory
+
+The learning mechanism that makes players remember sustainable water-use behaviours through:
+
+* repeated situations
+* consequences
+* recall challenges
+* previous choices
+* reinforcement
+* progressively harder decisions
+
+The goal is NOT to lecture the player about water conservation.
+
+The player should **experience why sustainable choices matter.**
+
+---
+
+# THE MAIN GAME CONCEPT
+
+The player starts with a limited amount of water.
+
+They go through a short simulated day/community scenario and encounter everyday situations involving water.
+
+Examples:
+
+* Brushing teeth
+* Taking a shower
+* Washing dishes
+* Washing clothes
+* Watering plants
+* Finding a leaking tap
+* Cleaning
+* Collecting rainwater
+* Reusing suitable leftover water
+
+For each situation, the player gets choices.
+
+Example:
+
+### Brushing teeth
+
+**The tap is running. What do you do?**
+
+A. Leave it running
+B. Turn it off while brushing
+C. Let it run slowly
+
+The choice should have an immediate gameplay consequence.
+
+For example:
+
+**Wasteful choice**
+
+* Water decreases significantly
+* Score decreases
+* Player receives a warning/feedback
+
+**Sustainable choice**
+
+* Water is preserved
+* Player gains points
+* A positive habit is recorded in Water Memory
+
+Do NOT simply display “Correct!” or “Wrong!”
+
+Instead, make the consequence visible and meaningful.
+
+---
+
+# WATER MEMORY SYSTEM
+
+This is one of the most important parts of the project.
+
+The player should encounter situations where they can demonstrate whether they remembered a previous lesson.
+
+Example:
+
+Early game:
+
+> “You are brushing your teeth. What should you do?”
+
+Player chooses:
+
+> Turn off the tap.
+
+Later:
+
+> “You're brushing your teeth again. Your water supply is getting low. What do you do?”
+
+The game should recognize/reinforce the previous sustainable behaviour.
+
+Another possibility is a short recall challenge:
+
+> “Earlier, you saved water by changing one habit. Which habit was it?”
+
+The player answers.
+
+This creates a simple memory loop:
+
+**Experience → Remember → Recall → Apply**
+
+Keep this system simple enough to implement reliably in an MVP.
+
+---
+
+# REAL-WORLD TWIST
+
+This is extremely important.
+
+At the end of the game, DO NOT simply show a score screen and stop.
+
+The final stage should be:
+
+# “Your Final Quest”
+
+The game tells the player:
+
+> “You learned how to save water in the game. Now try it in real life.”
+
+Give the player a small practical action they can actually perform.
+
+Examples:
+
+* Turn off the tap while brushing for the next 3 days.
+* Use a bucket instead of a running shower once.
+* Report a leaking tap.
+* Reuse suitable leftover household water for plants.
+* Collect rainwater where appropriate.
+* Check one tap at home for unnecessary leakage.
+
+The player selects one action.
+
+Then show something like:
+
+> 💧 REAL-WORLD QUEST SELECTED
+> “Turn off the tap while brushing for 3 days.”
+
+The player can mark the action as completed.
+
+OPTIONALLY, allow them to upload/take a photo as proof, but this should NOT be mandatory because we want the prototype to remain simple and privacy-friendly.
+
+After completion:
+
+> 🌍 “You didn't just learn it. You practiced it.”
+
+Award a final badge such as:
+
+**REAL WATER GUARDIAN**
+
+This is the final twist of the game.
+
+The purpose is to connect:
+
+**Game learning → real-world behaviour**
+
+---
+
+# 7-DAY WATER MEMORY
+
+If technically feasible, add a lightweight follow-up system.
+
+After the game:
+
+**Day 1**
+
+* Player selects a real-world water-saving action.
+
+**Day 3**
+
+* Player gets a reminder/mini recall question.
+
+Example:
+
+> “What water-saving action did you choose?”
+
+**Day 7**
+
+* Player checks whether they continued the habit.
+
+This should NOT require a complicated backend for the MVP.
+
+If persistent notifications are difficult, implement it as an in-game simulated 7-day challenge or local progress tracker.
+
+Do not over-engineer this.
+
+---
+
+# GAME FLOW
+
+Build approximately this flow:
+
+## SCREEN 1 — TITLE
+
+**AQUA QUEST**
+
+Subtitle:
+
+**“Every drop is a choice.”**
+
+Button:
+
+**START QUEST**
+
+Make this visually attractive and game-like.
+
+---
+
+## SCREEN 2 — STORY / MISSION
+
+Briefly explain:
+
+> “Your community has a limited water supply for the day. Every choice you make affects how long it lasts.”
+
+Then:
+
+**MISSION:**
+Keep your water supply healthy while completing your daily activities.
+
+Do not use a huge block of text.
+
+---
+
+# SCREEN 3 — WATER METER
+
+Show:
+
+💧 Water Supply: 100%
+
+Also show:
+
+⭐ Score
+
+🏆 Current level/title
+
+Example:
+
+**Water Guardian Level 1**
+
+The water meter should visibly change after choices.
+
+---
+
+# SCREEN 4+ — QUESTS
+
+Create several short playable scenarios.
+
+Example:
+
+### QUEST 1 — BRUSHING
+
+Water supply: 100%
+
+> “You're brushing your teeth.”
+
+Choices:
+
+1. Leave tap running
+2. Turn it off while brushing
+3. Keep it slightly open
+
+Each choice changes water/score differently.
+
+---
+
+### QUEST 2 — SHOWER
+
+> “You need to take a shower.”
+
+Choices might include:
+
+* Long running shower
+* Short shower
+* Bucket
+
+Do not make the correct answer painfully obvious every time.
+
+The game should feel like a decision game rather than a school quiz.
+
+---
+
+### QUEST 3 — LEAK
+
+> “You notice a leaking tap.”
+
+Choices:
+
+* Ignore it
+* Keep using it
+* Report/fix it
+
+Show consequences.
+
+---
+
+### QUEST 4 — PLANTS
+
+> “You have leftover suitable household water.”
+
+Choices:
+
+* Throw it away
+* Reuse it for plants
+* Leave it unused
+
+Again, show consequences.
+
+---
+
+### QUEST 5 — WATER SHORTAGE
+
+Near the end, make the water supply lower.
+
+Now the player has to prioritize.
+
+Example:
+
+> “Only 25% water remains. Which action do you prioritize?”
+
+This should demonstrate that the player's earlier decisions mattered.
+
+---
+
+# ADAPTIVE CONSEQUENCES
+
+If possible, make the game respond to player behaviour.
+
+For example:
+
+If the player wasted a lot of water earlier:
+
+> “Your supply is running low.”
+
+If the player consistently made sustainable choices:
+
+> “Your careful decisions kept the community's supply stable.”
+
+This makes the game feel more alive.
+
+Do NOT create an unnecessarily complicated AI system.
+
+Simple rule-based logic is completely acceptable.
+
+---
+
+# FINAL RESULT SCREEN
+
+At the end show:
+
+## YOUR WATER MEMORY RESULT
+
+**Water remaining:** 68%
+
+**Sustainable choices:** 7/10
+
+**Water wasted:** X
+
+**Water Memory:** Strong / Developing / Needs Practice
+
+**Badge:**
+🏆 Water Guardian
+
+Then show:
+
+### “What did you learn?”
+
+Display 2–3 practical behaviours based on the player's choices.
+
+For example:
+
+* Turn off taps when not actively using water.
+* Respond to leaks instead of ignoring them.
+* Reuse suitable household water where appropriate.
+
+Then transition into:
+
+# YOUR FINAL QUEST
+
+“Choose ONE action to take into the real world.”
+
+---
+
+# REAL-WORLD QUEST SCREEN
+
+Show several options.
+
+Example:
+
+💧 Turn off the tap while brushing for 3 days
+
+🚿 Take one shorter shower
+
+🔧 Report/fix a leaking tap
+
+🌱 Reuse suitable leftover water for plants
+
+☔ Collect rainwater where appropriate
+
+The player chooses one.
+
+Then:
+
+**START MY REAL-WORLD QUEST**
+
+Show progress:
+
+**0 / 3 days**
+
+or
+
+**0 / 1 action**
+
+The prototype can allow the player to manually mark it complete.
+
+After completion:
+
+🏆 **REAL WATER GUARDIAN**
+
+Message:
+
+> “The game ended. The habit doesn't have to.”
+
+This should be one of the strongest emotional moments of the prototype.
+
+---
+
+# VISUAL STYLE
+
+Make it feel like a **real modern casual game**, not an educational website.
+
+Style direction:
+
+* Clean
+* Bright
+* Friendly
+* Water/nature inspired
+* Modern UI
+* Smooth animations
+* Large interactive buttons
+* Clear water meter
+* Character or simple illustrated environment
+* Small celebratory animations when sustainable choices are made
+* Visible consequences when water is wasted
+
+Avoid:
+
+* Corporate dashboard appearance
+* Excessive cards
+* Huge paragraphs
+* Generic blue/purple “AI startup” aesthetic
+* Stock-photo-heavy design
+* Boring forms
+* Excessive charts
+
+The player should immediately understand:
+
+**“This is a game.”**
+
+---
+
+# TECHNICAL REQUIREMENTS
+
+Prefer a free technology stack.
+
+A web-based game is ideal because it can be demonstrated easily during judging.
+
+Recommended stack if appropriate:
+
+* React
+* Vite
+* JavaScript/TypeScript
+* CSS or Tailwind
+* LocalStorage for simple progress persistence
+
+Do NOT introduce unnecessary technologies.
+
+Do NOT add a database unless genuinely required.
+
+Do NOT add paid APIs.
+
+Do NOT require paid services.
+
+The prototype should work locally and be deployable using a free hosting option if possible.
+
+---
+
+# AI REQUIREMENT
+
+Do NOT force AI into the project just because this is an AI-assisted development environment.
+
+The game itself does not need an AI chatbot.
+
+If AI genuinely improves one part of the game, suggest a simple optional feature.
+
+Otherwise, keep the core gameplay deterministic and reliable.
+
+The innovation should come from the:
+
+**gameplay + Water Memory + real-world action**
+
+rather than adding an unnecessary chatbot.
+
+---
+
+# MVP PRIORITY
+
+The most important thing is a polished playable MVP.
+
+Prioritize:
+
+1. Actual gameplay
+2. Water meter
+3. Meaningful choices
+4. Consequences
+5. Water Memory
+6. Final real-world quest
+7. Good visual design
+8. Smooth user experience
+9. Reliable demo
+
+Do NOT spend most of the time building unnecessary features.
+
+A polished 3–5 minute experience is better than a huge unfinished game.
+
+---
+
+# DEMO EXPERIENCE
+
+Design the game so that a judge can understand the concept within approximately 2–5 minutes.
+
+The demo should clearly demonstrate:
+
+**1. Player makes a water-use decision**
+
+↓
+
+**2. Water level/score changes**
+
+↓
+
+**3. Player encounters another related situation**
+
+↓
+
+**4. Water Memory reinforces the previous behaviour**
+
+↓
+
+**5. Player reaches the final challenge**
+
+↓
+
+**6. Player chooses a real-world water-saving action**
+
+↓
+
+**7. Game ends with the message:**
+
+> “The game ended. The habit doesn't have to.”
+
+This should communicate the project's purpose without requiring a long explanation from me.
+
+---
+
+# IMPORTANT DEVELOPMENT INSTRUCTIONS
+
+Do NOT immediately dump thousands of lines of code.
+
+Work with me incrementally.
+
+First provide:
+
+### PHASE 1
+
+* Refined game concept
+* Final gameplay loop
+* Screen-by-screen structure
+* Water Memory mechanism
+* Real-world quest mechanism
+* Recommended tech stack
+* MVP feature list
+
+Then wait for my confirmation.
+
+After confirmation, build the project step by step.
+
+For every coding step:
+
+1. Tell me exactly what we are building.
+2. Tell me the exact file to create/edit.
+3. Give me the complete code I should paste.
+4. Clearly say whether I should replace the entire file or add code.
+5. Tell me how to run it.
+6. Tell me what I should see.
+7. Help me debug any errors before moving to the next step.
+
+Do not assume I already know advanced React, JavaScript, Git, or deployment.
+
+Explain technical steps simply.
+
+If something can be simplified without reducing the quality of the demo, simplify it.
+
+---
+
+# SUCCESS CRITERIA
+
+Before considering the prototype complete, verify that:
+
+* The player can actually play the game.
+* Choices affect water/score.
+* The game has meaningful consequences.
+* Water Memory is visible in gameplay.
+* The game remembers/reinforces previous choices.
+* The player receives a final result.
+* The player can choose a real-world sustainability action.
+* The prototype communicates the purpose without explanation.
+* The interface looks like a game rather than a dashboard.
+* The entire experience can be demonstrated within approximately 2–5 minutes.
+* The prototype can run using free tools.
+* There are no unnecessary paid APIs or services.
+
+Most importantly:
+
+**Do not turn this into a generic educational website.**
+
+Build an **actual playable game that teaches through experience and ends by asking the player to take one sustainable action in real life.**
